@@ -7,7 +7,8 @@
     "istanbul": "istanbul cover --report html --report lcov _mocha",
     "codeclimate": "npm run istanbul && source .codeclimate && codeclimate-test-reporter < coverage/lcov.info",
     "lint": "eslint .",
-    "prepush": "npm run lint && npm test && npm run codeclimate",
+    "precommit": "npm run lint && npm run test",
+    "prepush": "npm run lint && npm run codeclimate",
     "test": "mocha"
   },
   "keywords": [
