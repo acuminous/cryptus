@@ -51,7 +51,7 @@ const cryptus = initCryptus({
 
 // As before...
 ```
-See the [examples](github.com/cressie176/cryptus/master/examples) for more details.
+See the [examples](https://github.com/cressie176/cryptus/master/examples) for more details.
 
 
 ## Cryptography
@@ -85,4 +85,4 @@ Why use this module over just a simple aes192 and password combination?
 Want to learn more? This is a good start: https://www.schneier.com/books/practical_cryptography/
 
 ### Credits
-The inspiration, much of the code and almost all of this readme is thanks to the hard work of [Jake Howard](github.com/jakehoward). I shamelessly (but with permission) ripped off one of his modules and open sourced it.
+The inspiration, much of the code and almost all of this readme is thanks to the hard work of [Jake Howard](https://github.com/jakehoward). I shamelessly (but with permission) ripped off one of his modules and open sourced it.
