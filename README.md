@@ -72,7 +72,7 @@ Warning: if you lose your creds, you ain't gonna get your stuff back.
 
 Please be aware that this is a difficult area to get right. It would be unwise to use this module for something that was extremely sensitive. If you are handling something that needs very good secrecy, it's imperative that the system is designed from the ground up to incorporate that need. You would be well advised to get specialist advice.
 
-## Limitations of this module
+### Limitations of this module
 This module can only encrypt utf-8 encoded strings with a block cipher. I.e. you provide a string, you get an encrypted string back, assuming you don't lose your key/password, you will then be able to decrypt the string to get the original string back.
 
 This module does not authenticate. You may need authentication.
@@ -97,5 +97,5 @@ Why use this module over just a simple aes192 and password combination?
 
 Want to learn more? [Practical Cryptography](https://www.schneier.com/books/practical_cryptography/) is a good place to start.
 
-### Credits
+## Credits
 The inspiration, much of the code and almost all of this readme is thanks to the hard work of [Jake Howard](https://github.com/jakehoward). I shamelessly (but with permission) ripped off one of his modules and open sourced it.
