@@ -82,7 +82,7 @@ Why use this module over just a simple aes192 and password combination?
 1. The standard aes192 doesn't use an IV, this means you're leaking information. For example if we have the same password and you encrypt the same thing with both of our keys, you will get the same ciphertext. The attacker now knows that they can attack your security to break mine.
 1. aes192 just encrypts block by block, so similarly to the above point, it leaks information about the key. Worse, if you have repeating text in your plaintext, it may be possible to statistically analyse the ciphertext to figure out your plaintext, especially poignant in situations where the plaintext can only be one of a finite number of plaintexts.
 
-Want to learn more? This is a good start: https://www.schneier.com/books/practical_cryptography/
+Want to learn more? [Practical Cryptography](https://www.schneier.com/books/practical_cryptography/) is a good place to start.
 
 ### Credits
 The inspiration, much of the code and almost all of this readme is thanks to the hard work of [Jake Howard](https://github.com/jakehoward). I shamelessly (but with permission) ripped off one of his modules and open sourced it.
