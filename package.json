@@ -35,9 +35,7 @@
     "example": "examples",
     "test": "test"
   },
-  "dependencies": {
-    "lodash": "^4.17.4"
-  },
+  "dependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cressie176/cryptus.git"
