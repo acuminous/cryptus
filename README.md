@@ -46,6 +46,8 @@ const cryptus = initCryptus({
   algorithm: 'aes-256-cbc',
   iterations: 100000,
   keyLength: 32,
+  ivLength: 16,
+  saltLength: 32,
   digest: 'sha512',
 });
 
