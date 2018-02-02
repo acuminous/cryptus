@@ -29,13 +29,13 @@ console.log('Encrypted', encrypted);
 const decrypted = await cryptus.decrypt(key, encrypted);
 console.log('Decrypted', decrypted);
 ```
-Output:
+### Output:
 ```
 Encrypted v1:8f910e22140e4ea1c4640b19c7ad2eff:1ba80a0b72660ed3e0b6b18781e6e7ca66cef8b8e2ca73f0aff06f223c9a5ad2
 Decrypted text to be encrypted
 ```
 
-### With options
+## Configuration
 ```
 const { promisify } = require('util');
 const { promiseApi: initCryptus } = require('..');
@@ -81,7 +81,8 @@ Why use this module over just a simple aes192 and password combination?
 1. It is advised to aim for security of 128 bits. Key length != security. 256 bit key should hopefully give you 128 bits security.
 1. The standard aes192 doesn't use an IV, this means you're leaking information. For example if we have the same password and you encrypt the same thing with both of our keys, you will get the same ciphertext. The attacker now knows that they can attack your security to break mine.
 1. aes192 just encrypts block by block, so similarly to the above point, it leaks information about the key. Worse, if you have repeating text in your plaintext, it may be possible to statistically analyse the ciphertext to figure out your plaintext, especially poignant in situations where the plaintext can only be one of a finite number of plaintexts.
-Want to learn more? Although getting a bit long in the tooth, this is a good start: https://www.schneier.com/books/practical_cryptography/
+
+Want to learn more? This is a good start: https://www.schneier.com/books/practical_cryptography/
 
 ### Credits
 The inspiration, much of the code and almost all of this readme is thanks to the hard work of [Jake Howard](github.com/jakehoward). I shamelessly (but with permission) ripped off one of his modules and open sourced it.
