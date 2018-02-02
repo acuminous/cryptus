@@ -35,6 +35,17 @@ Encrypted v1:8f910e22140e4ea1c4640b19c7ad2eff:1ba80a0b72660ed3e0b6b18781e6e7ca66
 Decrypted text to be encrypted
 ```
 
+## Creating keys
+```
+npm install --production cryptus
+./node_modules/.bin/create-key 'super secret password'
+```
+
+### Output:
+```
+f81db52a3b2c717fe65d9a3b7dd04d2a08793e1a28e3083db3ea08db56e7c315
+```
+
 ## Configuration
 ```
 const { promisify } = require('util');
