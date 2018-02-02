@@ -1,9 +1,13 @@
 # Change Log
 
+## [1.2.0]
+### [Added]
+- Command line scripts for encrypting / decrypting text
+
 ## [1.1.0]
 ### [Added]
 - Additional configuration options for iv length and salt length
-- Script for creating keys
+- Command line script for creating keys
 
 
 ## [1.0.0]

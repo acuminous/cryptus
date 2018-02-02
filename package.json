@@ -12,7 +12,9 @@
     "test": "mocha"
   },
   "bin": {
-    "create-key": "./bin/create-key.js"
+    "create-key": "./bin/create-key.js",
+    "encrypt": "./bin/encrypt.js",
+    "decrypt": "./bin/decrypt.js"
   },
   "keywords": [
     "cryptopgraphy",

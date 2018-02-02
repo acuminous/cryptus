@@ -35,16 +35,29 @@ Encrypted v1:8f910e22140e4ea1c4640b19c7ad2eff:1ba80a0b72660ed3e0b6b18781e6e7ca66
 Decrypted text to be encrypted
 ```
 
-## Creating keys
+## Command Line Scripts
+
 ```
 npm install --production cryptus
+
+# Create a key
 ./node_modules/.bin/create-key 'super secret password'
+f81db52a3b2c717fe65d9a3b7dd04d2a08793e1a28e3083db3ea08db56e7c315
+
+# Encrypt some text
+./node_modules/.bin/encrypt f81db52a3b2c717fe65d9a3b7dd04d2a08793e1a28e3083db3ea08db56e7c315 'super secret password'
+v1:0cb7e69b6ad9db09039e941f4bdd4e20:355098d39feb5ba580dfdf2193434116f73875cc8f89fddae2f099affb5684f7
+
+# Decrypt the encrypted text
+./node_modules/.bin/decrypt f81db52a3b2c717fe65d9a3b7dd04d2a08793e1a28e3083db3ea08db56e7c315 v1:0cb7e69b6ad9db09039e941f4bdd4e20:355098d39feb5ba580dfdf2193434116f73875cc8f89fddae2f099affb5684f7
+super secret password
 ```
 
 ### Output:
 ```
 f81db52a3b2c717fe65d9a3b7dd04d2a08793e1a28e3083db3ea08db56e7c315
 ```
+
 
 ## Configuration
 ```
