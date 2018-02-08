@@ -7,9 +7,10 @@
     "istanbul": "istanbul cover --report html --report lcov _mocha",
     "codeclimate": "npm run istanbul && source .codeclimate && codeclimate-test-reporter < coverage/lcov.info",
     "lint": "eslint .",
-    "precommit": "npm run lint && npm run test",
+    "precommit": "npm run lint && npm run test && npm run examples",
     "prepush": "npm run lint && npm run codeclimate",
-    "test": "mocha"
+    "test": "mocha",
+    "examples": "node ./examples/callback-example.js && node ./examples/synchronous-example.js && node ./examples/promise-example.js && node ./examples/async-await-example.js"
   },
   "bin": {
     "create-key": "./bin/create-key.js",
@@ -22,7 +23,14 @@
     "encrypt",
     "decrypt",
     "encryption",
-    "decryption"
+    "decryption",
+    "synchronous",
+    "asynchronous",
+    "callback",
+    "promise",
+    "async",
+    "sync",
+    "await"
   ],
   "author": "Stephen Cresswell",
   "license": "ISC",

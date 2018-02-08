@@ -1,5 +1,8 @@
 const { promiseApi: initCryptus } = require('..');
 
+console.log('Async Await Example');
+console.log('-------------------');
+
 (async () => {
   const cryptus = initCryptus();
   const key = await cryptus.createKey('super secret password');
@@ -8,5 +11,5 @@ const { promiseApi: initCryptus } = require('..');
   console.log('Encrypted', encrypted);
 
   const decrypted = await cryptus.decrypt(key, encrypted);
-  console.log('Decrypted', decrypted);
+  console.log('Decrypted', decrypted, '\n');
 })();

@@ -1,5 +1,13 @@
 # Change Log
 
+## [1.3.0]
+### [Added]
+- Synchronous API
+
+### [Updated]
+- Fixed some typos
+- Linting rules
+
 ## [1.2.0]
 ### [Added]
 - Command line scripts for encrypting / decrypting text
