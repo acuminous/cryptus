@@ -77,7 +77,7 @@ const cryptus = initCryptus({
 
 // As before...
 ```
-See the [examples](https://github.com/cressie176/cryptus/master/examples) for more details.
+See the [examples](https://github.com/cressie176/cryptus/tree/master/examples) for more details.
 
 
 ## Cryptography
