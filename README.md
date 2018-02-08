@@ -10,7 +10,7 @@
 [![Dependency Status](https://david-dm.org/cressie176/cryptus.svg)](https://david-dm.org/cressie176/cryptus)
 [![devDependencies Status](https://david-dm.org/cressie176/cryptus/dev-status.svg)](https://david-dm.org/cressie176/cryptus?type=dev)
 
-Cryptus is an ultra thin crypto wrapper for encrypting and decrypting utf-8 strings. It is based purely on Node's crypto library and has no additional production dependencies. The main reason to use crypto is because of it's reasonably secure default behaviour, whereas if you use the crypto directly you may make a mistake. In short, what cryptus brings to the table is:
+Cryptus is an ultra thin crypto wrapper for encrypting and decrypting utf-8 strings. It is based purely on Node's crypto library and has no additional production dependencies. The main reason to use cryptus is because of its reasonably secure default behaviour, whereas if you use the Node.js crypto module directly you may make a mistake. In short, what cryptus brings to the table is:
 
 * Reasonably secure defaults
 * Initialisation vector is combined with encrypted secret for easy storage
