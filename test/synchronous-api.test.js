@@ -11,7 +11,7 @@ describe('Synchronous API', function() {
 
     before(function() {
       for (var i = 0; i < 100; i++) {
-        keys.push(cryptus.createKey('secret'))
+        keys.push(cryptus.createKey('secret'));
       };
     });
 
@@ -39,7 +39,7 @@ describe('Synchronous API', function() {
       var key = cryptus.createKey('secret');
 
       var encrypted = cryptus.encrypt(key, original);
-      assert.ok(/v1:.*:.*/.test(encrypted))
+      assert.ok(/v1:.*:.*/.test(encrypted));
 
       var decrypted = cryptus.decrypt(key, encrypted);
       assert.equal(original, decrypted);
@@ -51,14 +51,14 @@ describe('Synchronous API', function() {
         algorithm: 'camellia-256-cbc',
         iterations: 10,
         keyLength: 32,
-        digest: 'sha256'
+        digest: 'sha256',
       });
 
       var original = 'Why are you wearing that stupid man suit?';
       var key = cryptus.createKey('secret');
 
       var encrypted = cryptus.encrypt(key, original);
-      assert.ok(/v1:.*:.*/.test(encrypted))
+      assert.ok(/v1:.*:.*/.test(encrypted));
 
       var decrypted = cryptus.decrypt(key, encrypted);
       assert.equal(original, decrypted);

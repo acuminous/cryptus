@@ -11,6 +11,6 @@ module.exports = function(_options) {
   return {
     createKey: promisify(cryptus.createKey),
     encrypt: promisify(cryptus.encrypt),
-    decrypt: promisify(cryptus.decrypt)
-  }
-}
+    decrypt: promisify(cryptus.decrypt),
+  };
+};

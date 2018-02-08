@@ -2,7 +2,7 @@ var crypto = require('crypto');
 
 module.exports = function cryptus(_options) {
 
-  var options = _options || {}
+  var options = _options || {};
   var algorithm = options.algorithm || 'aes-256-cbc';
   var iterations = options.iterators || 100000;
   var keyLength = options.keyLength || 32;
@@ -18,7 +18,7 @@ module.exports = function cryptus(_options) {
       var encrypted = cipher.update(plain, 'utf8', 'hex') + cipher.final('hex');
       var result = 'v1' + ':' + iv.toString('hex') + ':' + encrypted;
       cb(null, result);
-    })
+    });
   }
 
   function decrypt(hexKey, token, cb) {
@@ -44,6 +44,6 @@ module.exports = function cryptus(_options) {
   return {
     createKey: createKey,
     encrypt: encrypt,
-    decrypt: decrypt
-  }
-}
+    decrypt: decrypt,
+  };
+};

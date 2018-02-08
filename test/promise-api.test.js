@@ -18,8 +18,8 @@ describe('Promise API', function() {
       var tasks = [];
       for (var i = 0; i < 100; i++) {
         tasks.push(limit(function() {
-          return cryptus.createKey('secret')
-        }))
+          return cryptus.createKey('secret');
+        }));
       }
       Promise.all(tasks)
         .then(_keys => {
@@ -55,7 +55,7 @@ describe('Promise API', function() {
         .then(function(key) {
           cryptus.encrypt(key, original)
           .then(function(encrypted) {
-            assert.ok(/v1:.*:.*/.test(encrypted))
+            assert.ok(/v1:.*:.*/.test(encrypted));
             cryptus.decrypt(key, encrypted)
             .then(function(decrypted) {
               assert.equal(original, decrypted);
@@ -71,7 +71,7 @@ describe('Promise API', function() {
         algorithm: 'camellia-256-cbc',
         iterations: 10,
         keyLength: 32,
-        digest: 'sha256'
+        digest: 'sha256',
       });
 
       var original = 'Why are you wearing that stupid man suit?';
@@ -80,7 +80,7 @@ describe('Promise API', function() {
         .then(function(key) {
           cryptus.encrypt(key, original)
           .then(function(encrypted) {
-            assert.ok(/v1:.*:.*/.test(encrypted))
+            assert.ok(/v1:.*:.*/.test(encrypted));
             cryptus.decrypt(key, encrypted)
             .then(function(decrypted) {
               assert.equal(original, decrypted);
@@ -101,7 +101,7 @@ describe('Promise API', function() {
           cryptus.encrypt(key, original, function(err, encrypted2) {
             assert.ifError(err);
             assert.notEqual(encrypted1, encrypted2);
-            done()
+            done();
           });
         });
       });
@@ -115,7 +115,7 @@ describe('Promise API', function() {
         .then(function(key) {
           cryptus.encrypt(key, original)
           .then(function(encrypted) {
-            assert.ok(/v1:.*:.*/.test(encrypted))
+            assert.ok(/v1:.*:.*/.test(encrypted));
             cryptus.decrypt(key, encrypted)
             .then(function(decrypted) {
               assert.equal(original, decrypted);

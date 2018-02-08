@@ -12,7 +12,7 @@ describe('Callback API', function() {
 
     before(function(done) {
       async.timesLimit(100, 4, function(i, cb) {
-        cryptus.createKey('secret', cb)
+        cryptus.createKey('secret', cb);
       }, function(err, _keys) {
         assert.ifError(err);
         keys = _keys;
@@ -46,12 +46,12 @@ describe('Callback API', function() {
         assert.ifError(err);
         cryptus.encrypt(key, original, function(err, encrypted) {
           assert.ifError(err);
-          assert.ok(/v1:.*:.*/.test(encrypted))
+          assert.ok(/v1:.*:.*/.test(encrypted));
           cryptus.decrypt(key, encrypted, function(err, decrypted) {
             assert.ifError(err);
             assert.equal(original, decrypted);
             done();
-          })
+          });
         });
       });
     });
@@ -62,7 +62,7 @@ describe('Callback API', function() {
         algorithm: 'camellia-256-cbc',
         iterations: 10,
         keyLength: 32,
-        digest: 'sha256'
+        digest: 'sha256',
       });
 
       var original = 'Why are you wearing that stupid man suit?';
@@ -71,12 +71,12 @@ describe('Callback API', function() {
         assert.ifError(err);
         cryptus.encrypt(key, original, function(err, encrypted) {
           assert.ifError(err);
-          assert.ok(/v1:.*:.*/.test(encrypted))
+          assert.ok(/v1:.*:.*/.test(encrypted));
           cryptus.decrypt(key, encrypted, function(err, decrypted) {
             assert.ifError(err);
             assert.equal(original, decrypted);
             done();
-          })
+          });
         });
       });
     });
@@ -92,7 +92,7 @@ describe('Callback API', function() {
           cryptus.encrypt(key, original, function(err, encrypted2) {
             assert.ifError(err);
             assert.notEqual(encrypted1, encrypted2);
-            done()
+            done();
           });
         });
       });
@@ -109,7 +109,7 @@ describe('Callback API', function() {
           cryptus.encrypt(key, original, function(err, encrypted2) {
             assert.ifError(err);
             assert.notEqual(encrypted1, encrypted2);
-            done()
+            done();
           });
         });
       });
