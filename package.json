@@ -35,20 +35,23 @@
   "author": "Stephen Cresswell",
   "license": "ISC",
   "devDependencies": {
-    "async": "^2.6.0",
-    "eslint": "^4.19.1",
-    "eslint-config-imperative": "^2.0.1",
-    "eslint-plugin-imperative": "^2.0.0",
+    "async": "^2.6.1",
+    "eslint": "^5.5.0",
+    "eslint-config-imperative": "^2.1.0",
+    "eslint-plugin-imperative": "^2.1.0",
     "husky": "^0.14.3",
     "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
-    "p-limit": "^1.2.0"
+    "p-limit": "^2.0.0"
   },
   "directories": {
     "example": "examples",
     "test": "test"
   },
   "dependencies": {},
+  "engines": {
+    "node": ">6.0.0"
+  },  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cressie176/cryptus.git"

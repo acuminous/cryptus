@@ -1,5 +1,8 @@
 # Change Log
 
+## 1.4.0
+- General maintenance
+
 ## 1.3.1
 ### Updated
 - Node 10 to .travis
