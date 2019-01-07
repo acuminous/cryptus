@@ -45,12 +45,12 @@ npm install --production cryptus
 f81db52a3b2c717fe65d9a3b7dd04d2a08793e1a28e3083db3ea08db56e7c315
 
 # Encrypt some text
-./node_modules/.bin/encrypt f81db52a3b2c717fe65d9a3b7dd04d2a08793e1a28e3083db3ea08db56e7c315 'super secret password'
+./node_modules/.bin/encrypt f81db52a3b2c717fe65d9a3b7dd04d2a08793e1a28e3083db3ea08db56e7c315 'super secret text'
 v1:0cb7e69b6ad9db09039e941f4bdd4e20:355098d39feb5ba580dfdf2193434116f73875cc8f89fddae2f099affb5684f7
 
 # Decrypt the encrypted text
 ./node_modules/.bin/decrypt f81db52a3b2c717fe65d9a3b7dd04d2a08793e1a28e3083db3ea08db56e7c315 v1:0cb7e69b6ad9db09039e941f4bdd4e20:355098d39feb5ba580dfdf2193434116f73875cc8f89fddae2f099affb5684f7
-super secret password
+super secret text
 ```
 
 ### Output:
