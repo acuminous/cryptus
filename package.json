@@ -4,8 +4,8 @@
   "description": "An ultra thin crypto wrapper for encrypting and decrypting utf-8 strings",
   "main": "index.js",
   "scripts": {
-    "istanbul": "istanbul cover --report html --report lcov _mocha",
-    "codeclimate": "npm run istanbul && source .codeclimate",
+    "coverage": "nyc --report html --reporter lcov --reporter text-summary mocha test",
+    "codeclimate": "(test -e .codeclimate && npm run coverage && source .codeclimate) || echo skipping codeclimate",
     "lint": "eslint .",
     "precommit": "npm run lint && npm run test && npm run examples",
     "prepush": "npm run lint && npm run codeclimate",
@@ -35,14 +35,14 @@
   "author": "Stephen Cresswell",
   "license": "ISC",
   "devDependencies": {
-    "async": "^2.6.1",
-    "eslint": "^5.5.0",
+    "async": "^2.6.2",
+    "eslint": "^5.16.0",
     "eslint-config-imperative": "^2.1.0",
     "eslint-plugin-imperative": "^2.1.0",
-    "husky": "^0.14.3",
-    "istanbul": "^0.4.5",
-    "mocha": "^5.2.0",
-    "p-limit": "^2.0.0"
+    "husky": "^1.3.1",
+    "mocha": "^6.1.0",
+    "nyc": "^13.3.0",
+    "p-limit": "^2.2.0"
   },
   "directories": {
     "example": "examples",
