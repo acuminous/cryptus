@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "precommit": "npm run lint && npm run test && npm run examples",
     "prepush": "npm run lint && npm run codeclimate",
-    "test": "mocha",
+    "test": "mocha test",
     "examples": "node ./examples/callback-example.js && node ./examples/synchronous-example.js && node ./examples/promise-example.js && node ./examples/async-await-example.js"
   },
   "bin": {
