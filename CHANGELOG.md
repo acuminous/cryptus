@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.5.1
+- Update depdendencies
+- Node 12 to .travis
+
 ## 1.5.0
 - Update depdendencies
 
