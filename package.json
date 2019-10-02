@@ -1,6 +1,6 @@
 {
   "name": "cryptus",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "An ultra thin crypto wrapper for encrypting and decrypting utf-8 strings",
   "main": "index.js",
   "scripts": {
