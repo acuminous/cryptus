@@ -27,7 +27,7 @@ describe('Synchronous API', function() {
     it('should not create sequential keys', function() {
       const unsorted = keys.join(',');
       const sorted = keys.slice(0).sort().join(',');
-      assert.notEqual(sorted, unsorted);
+      assert.notStrictEqual(sorted, unsorted);
     });
 
   });
@@ -69,7 +69,7 @@ describe('Synchronous API', function() {
       var key = cryptus.createKey('secret');
       var encrypted1 = cryptus.encrypt(key, original);
       var encrypted2 = cryptus.encrypt(key, original);
-      assert.notEqual(encrypted1, encrypted2);
+      assert.notStrictEqual(encrypted1, encrypted2);
     });
 
     it('should encrypt an empty string', function() {
@@ -77,7 +77,7 @@ describe('Synchronous API', function() {
       var key = cryptus.createKey('secret');
       var encrypted1 = cryptus.encrypt(key, original);
       var encrypted2 = cryptus.encrypt(key, original);
-      assert.notEqual(encrypted1, encrypted2);
+      assert.notStrictEqual(encrypted1, encrypted2);
     });
   });
 });

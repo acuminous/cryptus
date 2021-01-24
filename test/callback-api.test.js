@@ -108,7 +108,7 @@ describe('Callback API', function() {
           assert.ifError(err);
           cryptus.encrypt(key, original, function(err, encrypted2) {
             assert.ifError(err);
-            assert.notEqual(encrypted1, encrypted2);
+            assert.notStrictEqual(encrypted1, encrypted2);
             done();
           });
         });
