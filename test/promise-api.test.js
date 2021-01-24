@@ -13,7 +13,7 @@ describe('Promise API', function() {
 
     var keys;
 
-    before(function(done) {
+    before(function(h, done) {
       var limit = pLimit(4);
       var tasks = [];
       for (var i = 0; i < 100; i++) {
@@ -41,14 +41,14 @@ describe('Promise API', function() {
     it('should not create sequential keys', function() {
       const unsorted = keys.join(',');
       const sorted = keys.slice(0).sort().join(',');
-      assert.notEqual(sorted, unsorted);
+      assert.notStrictEqual(sorted, unsorted);
     });
 
   });
 
   describe('Encrypt / Decrypt', function() {
 
-    it('should encrypt / decrypt a string with defaults', function(done) {
+    it('should encrypt / decrypt a string with defaults', function(t, done) {
       var original = 'Why are you wearing that stupid man suit?';
 
       cryptus.createKey('secret')
@@ -65,7 +65,7 @@ describe('Promise API', function() {
         }).catch(done);
     });
 
-    it('should encrypt / decrypt a string with options', function(done) {
+    it('should encrypt / decrypt a string with options', function(t, done) {
 
       cryptus = promiseApi({
         algorithm: 'camellia-256-cbc',
@@ -90,7 +90,7 @@ describe('Promise API', function() {
         }).catch(done);
     });
 
-    it('should not result in the same encrypted value twice', function(done) {
+    it('should not result in the same encrypted value twice', function(t, done) {
 
       var original = 'Why are you wearing that stupid man suit?';
 
@@ -100,14 +100,14 @@ describe('Promise API', function() {
           assert.ifError(err);
           cryptus.encrypt(key, original, function(err, encrypted2) {
             assert.ifError(err);
-            assert.notEqual(encrypted1, encrypted2);
+            assert.notStrictEqual(encrypted1, encrypted2);
             done();
           });
         });
       });
     });
 
-    it('should encrypt an empty string', function(done) {
+    it('should encrypt an empty string', function(t, done) {
 
       var original = '';
 
