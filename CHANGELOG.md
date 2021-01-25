@@ -1,5 +1,8 @@
 # Change Log
 
+## Unreleased
+- Add build status badge to readme
+
 ## 2.0.0
 - Migrate from travis to GitHub actions
 - Update other dependencies

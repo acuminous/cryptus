@@ -2,6 +2,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/cryptus.svg?style=flat-square)](https://www.npmjs.com/package/cryptus)
 [![NPM downloads](https://img.shields.io/npm/dm/cryptus.svg?style=flat-square)](https://www.npmjs.com/package/cryptus)
+[![Node.js CI](https://github.com/acuminous/cryptus/workflows/Node.js%20CI/badge.svg)](https://github.com/acuminous/cryptus/actions?query=workflow%3A%22Node.js+CI%22)
 [![Code Climate](https://codeclimate.com/github/acuminous/cryptus/badges/gpa.svg)](https://codeclimate.com/github/acuminous/cryptus)
 [![Test Coverage](https://codeclimate.com/github/acuminous/cryptus/badges/coverage.svg)](https://codeclimate.com/github/acuminous/cryptus/coverage)
 [![Dependency Status](https://david-dm.org/acuminous/cryptus.svg)](https://david-dm.org/acuminous/cryptus)
