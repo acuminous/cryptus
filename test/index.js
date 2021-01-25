@@ -7,7 +7,7 @@ const harness = new Harness(suite);
 const interactive = String(process.env.CI).toLowerCase() !== 'true';
 const reporter = new SpecReporter({ colours: interactive, });
 
-harness.run(reporter).then((report) => {
+harness.run(reporter, { timeout: 20000 }).then((report) => {
   if (report.failed) process.exit(1);
   if (report.incomplete) {
     console.log(`One or more tests were not run!${EOL}`);
