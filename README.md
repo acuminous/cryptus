@@ -2,10 +2,10 @@
 
 [![NPM version](https://img.shields.io/npm/v/cryptus.svg?style=flat-square)](https://www.npmjs.com/package/cryptus)
 [![NPM downloads](https://img.shields.io/npm/dm/cryptus.svg?style=flat-square)](https://www.npmjs.com/package/cryptus)
-[![Code Climate](https://codeclimate.com/github/cressie176/cryptus/badges/gpa.svg)](https://codeclimate.com/github/cressie176/cryptus)
-[![Test Coverage](https://codeclimate.com/github/cressie176/cryptus/badges/coverage.svg)](https://codeclimate.com/github/cressie176/cryptus/coverage)
-[![Dependency Status](https://david-dm.org/cressie176/cryptus.svg)](https://david-dm.org/cressie176/cryptus)
-[![devDependencies Status](https://david-dm.org/cressie176/cryptus/dev-status.svg)](https://david-dm.org/cressie176/cryptus?type=dev)
+[![Code Climate](https://codeclimate.com/github/acuminous/cryptus/badges/gpa.svg)](https://codeclimate.com/github/acuminous/cryptus)
+[![Test Coverage](https://codeclimate.com/github/acuminous/cryptus/badges/coverage.svg)](https://codeclimate.com/github/acuminous/cryptus/coverage)
+[![Dependency Status](https://david-dm.org/acuminous/cryptus.svg)](https://david-dm.org/acuminous/cryptus)
+[![devDependencies Status](https://david-dm.org/acuminous/cryptus/dev-status.svg)](https://david-dm.org/acuminous/cryptus?type=dev)
 
 Cryptus is an ultra thin crypto wrapper for encrypting and decrypting utf-8 strings. It is based purely on Node's crypto library and has no additional production dependencies. The main reason to use cryptus is because of its reasonably secure default behaviour, whereas if you use the Node.js crypto module directly you may make a mistake. In short, what cryptus brings to the table is:
 
@@ -68,7 +68,7 @@ const cryptus = initCryptus({
 
 // As before...
 ```
-See the [examples](https://github.com/cressie176/cryptus/tree/master/examples) for more details.
+See the [examples](https://github.com/acuminous/cryptus/tree/master/examples) for more details.
 
 
 ## Cryptography

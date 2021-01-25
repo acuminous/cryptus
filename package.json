@@ -49,12 +49,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cressie176/cryptus.git"
+    "url": "git+https://github.com/acuminous/cryptus.git"
   },
   "bugs": {
-    "url": "https://github.com/cressie176/cryptus/issues"
+    "url": "https://github.com/acuminous/cryptus/issues"
   },
-  "homepage": "https://cressie176.github.io/cryptus/",
+  "homepage": "https://acuminous.github.io/cryptus/",
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint && npm run test && npm run examples"
