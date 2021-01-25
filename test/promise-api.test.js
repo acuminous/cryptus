@@ -1,23 +1,24 @@
-var assert = require('assert');
-var promiseApi = require('..').promiseApi;
-var pLimit = require('p-limit');
-var util = require('util');
+const assert = require('assert');
+const pLimit = require('p-limit');
+const util = require('util');
+const { before, describe, it } = require('zunit');
+const promiseApi = require('..').promiseApi;
 
 if (!util.promisify) return;
 
-describe('Promise API', function() {
+describe('Promise API', () => {
 
-  var cryptus = promiseApi();
+  let cryptus = promiseApi();
 
-  describe('Create Key', function() {
+  describe('Create Key', () => {
 
-    var keys;
+    let keys;
 
-    before(function(h, done) {
-      var limit = pLimit(4);
-      var tasks = [];
-      for (var i = 0; i < 100; i++) {
-        tasks.push(limit(function() {
+    before((h, done) => {
+      const limit = pLimit(4);
+      const tasks = [];
+      for (let i = 0; i < 100; i++) {
+        tasks.push(limit(() => {
           return cryptus.createKey('secret');
         }));
       }
@@ -29,8 +30,8 @@ describe('Promise API', function() {
         .catch(done);
     });
 
-    it('should not create the same key twice', function() {
-      var uniqueKeys = Object.keys(keys.reduce(function(acc, key) {
+    it('should not create the same key twice', () => {
+      const uniqueKeys = Object.keys(keys.reduce((acc, key) => {
         acc[key] = true;
         return acc;
       }, {}));
@@ -38,7 +39,7 @@ describe('Promise API', function() {
       assert.equal(uniqueKeys.length, 100);
     });
 
-    it('should not create sequential keys', function() {
+    it('should not create sequential keys', () => {
       const unsorted = keys.join(',');
       const sorted = keys.slice(0).sort().join(',');
       assert.notStrictEqual(sorted, unsorted);
@@ -46,26 +47,26 @@ describe('Promise API', function() {
 
   });
 
-  describe('Encrypt / Decrypt', function() {
+  describe('Encrypt / Decrypt', () => {
 
-    it('should encrypt / decrypt a string with defaults', function(t, done) {
-      var original = 'Why are you wearing that stupid man suit?';
+    it('should encrypt / decrypt a string with defaults', (t, done) => {
+      const original = 'Why are you wearing that stupid man suit?';
 
       cryptus.createKey('secret')
-        .then(function(key) {
+        .then((key) => {
           cryptus.encrypt(key, original)
-          .then(function(encrypted) {
-            assert.ok(/v1:.*:.*/.test(encrypted));
-            cryptus.decrypt(key, encrypted)
-            .then(function(decrypted) {
-              assert.equal(original, decrypted);
-              done();
+            .then((encrypted) => {
+              assert.ok(/v1:.*:.*/.test(encrypted));
+              cryptus.decrypt(key, encrypted)
+                .then((decrypted) => {
+                  assert.equal(original, decrypted);
+                  done();
+                }).catch(done);
             }).catch(done);
-          }).catch(done);
         }).catch(done);
     });
 
-    it('should encrypt / decrypt a string with options', function(t, done) {
+    it('should encrypt / decrypt a string with options', (t, done) => {
 
       cryptus = promiseApi({
         algorithm: 'camellia-256-cbc',
@@ -74,31 +75,31 @@ describe('Promise API', function() {
         digest: 'sha256',
       });
 
-      var original = 'Why are you wearing that stupid man suit?';
+      const original = 'Why are you wearing that stupid man suit?';
 
       cryptus.createKey('secret')
-        .then(function(key) {
+        .then((key) => {
           cryptus.encrypt(key, original)
-          .then(function(encrypted) {
-            assert.ok(/v1:.*:.*/.test(encrypted));
-            cryptus.decrypt(key, encrypted)
-            .then(function(decrypted) {
-              assert.equal(original, decrypted);
-              done();
+            .then((encrypted) => {
+              assert.ok(/v1:.*:.*/.test(encrypted));
+              cryptus.decrypt(key, encrypted)
+                .then((decrypted) => {
+                  assert.equal(original, decrypted);
+                  done();
+                }).catch(done);
             }).catch(done);
-          }).catch(done);
         }).catch(done);
     });
 
-    it('should not result in the same encrypted value twice', function(t, done) {
+    it('should not result in the same encrypted value twice', (t, done) => {
 
-      var original = 'Why are you wearing that stupid man suit?';
+      const original = 'Why are you wearing that stupid man suit?';
 
-      cryptus.createKey('secret', function(err, key) {
+      cryptus.createKey('secret', (err, key) => {
         assert.ifError(err);
-        cryptus.encrypt(key, original, function(err, encrypted1) {
+        cryptus.encrypt(key, original, (err, encrypted1) => {
           assert.ifError(err);
-          cryptus.encrypt(key, original, function(err, encrypted2) {
+          cryptus.encrypt(key, original, (err, encrypted2) => {
             assert.ifError(err);
             assert.notStrictEqual(encrypted1, encrypted2);
             done();
@@ -107,21 +108,21 @@ describe('Promise API', function() {
       });
     });
 
-    it('should encrypt an empty string', function(t, done) {
+    it('should encrypt an empty string', (t, done) => {
 
-      var original = '';
+      const original = '';
 
       cryptus.createKey('secret')
-        .then(function(key) {
+        .then((key) => {
           cryptus.encrypt(key, original)
-          .then(function(encrypted) {
-            assert.ok(/v1:.*:.*/.test(encrypted));
-            cryptus.decrypt(key, encrypted)
-            .then(function(decrypted) {
-              assert.equal(original, decrypted);
-              done();
+            .then((encrypted) => {
+              assert.ok(/v1:.*:.*/.test(encrypted));
+              cryptus.decrypt(key, encrypted)
+                .then((decrypted) => {
+                  assert.equal(original, decrypted);
+                  done();
+                }).catch(done);
             }).catch(done);
-          }).catch(done);
         }).catch(done);
     });
   });

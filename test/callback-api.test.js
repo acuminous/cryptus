@@ -1,27 +1,28 @@
-var assert = require('assert');
-var async = require('async');
-var callbackApi = require('..').callbackApi;
+const assert = require('assert');
+const async = require('async');
+const { before, describe, it } = require('zunit');
+const callbackApi = require('..').callbackApi;
 
-describe('Callback API', function() {
+describe('Callback API', () => {
 
-  var cryptus = callbackApi();
+  let cryptus = callbackApi();
 
-  describe('Create Key', function() {
+  describe('Create Key', () => {
 
-    var keys;
+    let keys;
 
-    before(function(h, done) {
-      async.timesLimit(100, 4, function(i, cb) {
+    before((h, done) => {
+      async.timesLimit(100, 4, (i, cb) => {
         cryptus.createKey('secret', cb);
-      }, function(err, _keys) {
+      }, (err, _keys) => {
         assert.ifError(err);
         keys = _keys;
         done();
       });
     });
 
-    it('should not create the same key twice', function() {
-      var uniqueKeys = Object.keys(keys.reduce(function(acc, key) {
+    it('should not create the same key twice', () => {
+      const uniqueKeys = Object.keys(keys.reduce((acc, key) => {
         acc[key] = true;
         return acc;
       }, {}));
@@ -29,7 +30,7 @@ describe('Callback API', function() {
       assert.strictEqual(uniqueKeys.length, 100);
     });
 
-    it('should not create sequential keys', function() {
+    it('should not create sequential keys', () => {
       const unsorted = keys.join(',');
       const sorted = keys.slice(0).sort().join(',');
       assert.notStrictEqual(sorted, unsorted);
@@ -37,17 +38,17 @@ describe('Callback API', function() {
 
   });
 
-  describe('Encrypt / Decrypt', function() {
+  describe('Encrypt / Decrypt', () => {
 
-    it('should encrypt / decrypt a string with defaults', function(t, done) {
-      var original = 'Why are you wearing that stupid man suit?';
+    it('should encrypt / decrypt a string with defaults', (t, done) => {
+      const original = 'Why are you wearing that stupid man suit?';
 
-      cryptus.createKey('secret', function(err, key) {
+      cryptus.createKey('secret', (err, key) => {
         assert.ifError(err);
-        cryptus.encrypt(key, original, function(err, encrypted) {
+        cryptus.encrypt(key, original, (err, encrypted) => {
           assert.ifError(err);
           assert.ok(/v1:.*:.*/.test(encrypted));
-          cryptus.decrypt(key, encrypted, function(err, decrypted) {
+          cryptus.decrypt(key, encrypted, (err, decrypted) => {
             assert.ifError(err);
             assert.strictEqual(original, decrypted);
             done();
@@ -56,7 +57,7 @@ describe('Callback API', function() {
       });
     });
 
-    it('should encrypt / decrypt a string with options', function(t, done) {
+    it('should encrypt / decrypt a string with options', (t, done) => {
 
       cryptus = callbackApi({
         algorithm: 'camellia-256-cbc',
@@ -65,14 +66,14 @@ describe('Callback API', function() {
         digest: 'sha256',
       });
 
-      var original = 'Why are you wearing that stupid man suit?';
+      const original = 'Why are you wearing that stupid man suit?';
 
-      cryptus.createKey('secret', function(err, key) {
+      cryptus.createKey('secret', (err, key) => {
         assert.ifError(err);
-        cryptus.encrypt(key, original, function(err, encrypted) {
+        cryptus.encrypt(key, original, (err, encrypted) => {
           assert.ifError(err);
           assert.ok(/v1:.*:.*/.test(encrypted));
-          cryptus.decrypt(key, encrypted, function(err, decrypted) {
+          cryptus.decrypt(key, encrypted, (err, decrypted) => {
             assert.ifError(err);
             assert.strictEqual(original, decrypted);
             done();
@@ -81,15 +82,15 @@ describe('Callback API', function() {
       });
     });
 
-    it('should not result in the same encrypted value twice', function(t, done) {
+    it('should not result in the same encrypted value twice', (t, done) => {
 
-      var original = 'Why are you wearing that stupid man suit?';
+      const original = 'Why are you wearing that stupid man suit?';
 
-      cryptus.createKey('secret', function(err, key) {
+      cryptus.createKey('secret', (err, key) => {
         assert.ifError(err);
-        cryptus.encrypt(key, original, function(err, encrypted1) {
+        cryptus.encrypt(key, original, (err, encrypted1) => {
           assert.ifError(err);
-          cryptus.encrypt(key, original, function(err, encrypted2) {
+          cryptus.encrypt(key, original, (err, encrypted2) => {
             assert.ifError(err);
             assert.notStrictEqual(encrypted1, encrypted2);
             done();
@@ -98,15 +99,15 @@ describe('Callback API', function() {
       });
     });
 
-    it('should encrypt an empty string', function(t, done) {
+    it('should encrypt an empty string', (t, done) => {
 
-      var original = '';
+      const original = '';
 
-      cryptus.createKey('secret', function(err, key) {
+      cryptus.createKey('secret', (err, key) => {
         assert.ifError(err);
-        cryptus.encrypt(key, original, function(err, encrypted1) {
+        cryptus.encrypt(key, original, (err, encrypted1) => {
           assert.ifError(err);
-          cryptus.encrypt(key, original, function(err, encrypted2) {
+          cryptus.encrypt(key, original, (err, encrypted2) => {
             assert.ifError(err);
             assert.notStrictEqual(encrypted1, encrypted2);
             done();

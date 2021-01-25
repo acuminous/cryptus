@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-var callbackApi = require('..').callbackApi;
-var cryptus = callbackApi();
-var timeout = setTimeout(function() {}, 5000);
-var key = process.argv[2];
-var encrypted = process.argv[3];
+const callbackApi = require('..').callbackApi;
+const cryptus = callbackApi();
+const timeout = setTimeout(() => {}, 5000);
+const key = process.argv[2];
+const encrypted = process.argv[3];
 
 if (!key) {
   console.error('Please specify a key');

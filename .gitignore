@@ -1,5 +1,6 @@
 .codeclimate
 .nyc_output
+.vscode
 coverage
 node_modules
 *.log

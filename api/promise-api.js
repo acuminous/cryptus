@@ -1,12 +1,12 @@
-var callbackApi = require('./callback-api');
-var util = require('util');
+const callbackApi = require('./callback-api');
+const util = require('util');
 
 module.exports = function(_options) {
-  var options = _options || {};
-  var promisify = options.promisify || util.promisify;
+  const options = _options || {};
+  const promisify = options.promisify || util.promisify;
   if (!promisify) throw new Error('Please supply a promisify function');
 
-  var cryptus = callbackApi(options);
+  const cryptus = callbackApi(options);
 
   return {
     createKey: promisify(cryptus.createKey),

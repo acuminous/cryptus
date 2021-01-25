@@ -1,9 +1,5 @@
 const { EOL, } = require('os');
-const { Harness, Suite, SpecReporter, syntax, } = require('zunit');
-
-Object.entries(syntax).forEach(([keyword, fn,]) => {
-  global[keyword] = fn;
-});
+const { Harness, Suite, SpecReporter, } = require('zunit');
 
 const suite = new Suite('Rascal').discover();
 const harness = new Harness(suite);

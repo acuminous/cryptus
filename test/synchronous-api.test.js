@@ -1,22 +1,23 @@
-var assert = require('assert');
-var synchronousApi = require('..').synchronousApi;
+const assert = require('assert');
+const { before, describe, it } = require('zunit');
+const synchronousApi = require('..').synchronousApi;
 
-describe('Synchronous API', function() {
+describe('Synchronous API', () => {
 
-  var cryptus = synchronousApi();
+  let cryptus = synchronousApi();
 
-  describe('Create Key', function() {
+  describe('Create Key', () => {
 
-    var keys = [];
+    const keys = [];
 
-    before(function() {
-      for (var i = 0; i < 100; i++) {
+    before(() => {
+      for (let i = 0; i < 100; i++) {
         keys.push(cryptus.createKey('secret'));
-      };
+      }
     });
 
-    it('should not create the same key twice', function() {
-      var uniqueKeys = Object.keys(keys.reduce(function(acc, key) {
+    it('should not create the same key twice', () => {
+      const uniqueKeys = Object.keys(keys.reduce((acc, key) => {
         acc[key] = true;
         return acc;
       }, {}));
@@ -24,7 +25,7 @@ describe('Synchronous API', function() {
       assert.equal(uniqueKeys.length, 100);
     });
 
-    it('should not create sequential keys', function() {
+    it('should not create sequential keys', () => {
       const unsorted = keys.join(',');
       const sorted = keys.slice(0).sort().join(',');
       assert.notStrictEqual(sorted, unsorted);
@@ -32,20 +33,20 @@ describe('Synchronous API', function() {
 
   });
 
-  describe('Encrypt / Decrypt', function() {
+  describe('Encrypt / Decrypt', () => {
 
-    it('should encrypt / decrypt a string with defaults', function() {
-      var original = 'Why are you wearing that stupid man suit?';
-      var key = cryptus.createKey('secret');
+    it('should encrypt / decrypt a string with defaults', () => {
+      const original = 'Why are you wearing that stupid man suit?';
+      const key = cryptus.createKey('secret');
 
-      var encrypted = cryptus.encrypt(key, original);
+      const encrypted = cryptus.encrypt(key, original);
       assert.ok(/v1:.*:.*/.test(encrypted));
 
-      var decrypted = cryptus.decrypt(key, encrypted);
+      const decrypted = cryptus.decrypt(key, encrypted);
       assert.equal(original, decrypted);
     });
 
-    it('should encrypt / decrypt a string with options', function() {
+    it('should encrypt / decrypt a string with options', () => {
 
       cryptus = synchronousApi({
         algorithm: 'camellia-256-cbc',
@@ -54,29 +55,29 @@ describe('Synchronous API', function() {
         digest: 'sha256',
       });
 
-      var original = 'Why are you wearing that stupid man suit?';
-      var key = cryptus.createKey('secret');
+      const original = 'Why are you wearing that stupid man suit?';
+      const key = cryptus.createKey('secret');
 
-      var encrypted = cryptus.encrypt(key, original);
+      const encrypted = cryptus.encrypt(key, original);
       assert.ok(/v1:.*:.*/.test(encrypted));
 
-      var decrypted = cryptus.decrypt(key, encrypted);
+      const decrypted = cryptus.decrypt(key, encrypted);
       assert.equal(original, decrypted);
     });
 
-    it('should not result in the same encrypted value twice', function() {
-      var original = 'Why are you wearing that stupid man suit?';
-      var key = cryptus.createKey('secret');
-      var encrypted1 = cryptus.encrypt(key, original);
-      var encrypted2 = cryptus.encrypt(key, original);
+    it('should not result in the same encrypted value twice', () => {
+      const original = 'Why are you wearing that stupid man suit?';
+      const key = cryptus.createKey('secret');
+      const encrypted1 = cryptus.encrypt(key, original);
+      const encrypted2 = cryptus.encrypt(key, original);
       assert.notStrictEqual(encrypted1, encrypted2);
     });
 
-    it('should encrypt an empty string', function() {
-      var original = '';
-      var key = cryptus.createKey('secret');
-      var encrypted1 = cryptus.encrypt(key, original);
-      var encrypted2 = cryptus.encrypt(key, original);
+    it('should encrypt an empty string', () => {
+      const original = '';
+      const key = cryptus.createKey('secret');
+      const encrypted1 = cryptus.encrypt(key, original);
+      const encrypted2 = cryptus.encrypt(key, original);
       assert.notStrictEqual(encrypted1, encrypted2);
     });
   });

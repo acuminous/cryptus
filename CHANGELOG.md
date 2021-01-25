@@ -1,5 +1,10 @@
 # Change Log
 
+## 2.0.0
+- Update eslint and switch to eslint:recommended
+- Removed support for Node 6 and 8
+- Replaced mocha with zunit
+
 ## 1.5.1
 - Update depdendencies
 - Node 12 to .travis
