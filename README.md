@@ -1,12 +1,9 @@
 # Cryptus
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/cressie176/cryptus.svg)](https://greenkeeper.io/)
 [![NPM version](https://img.shields.io/npm/v/cryptus.svg?style=flat-square)](https://www.npmjs.com/package/cryptus)
 [![NPM downloads](https://img.shields.io/npm/dm/cryptus.svg?style=flat-square)](https://www.npmjs.com/package/cryptus)
-[![Build Status](https://img.shields.io/travis/cressie176/cryptus/master.svg)](https://travis-ci.org/cressie176/cryptus)
 [![Code Climate](https://codeclimate.com/github/cressie176/cryptus/badges/gpa.svg)](https://codeclimate.com/github/cressie176/cryptus)
 [![Test Coverage](https://codeclimate.com/github/cressie176/cryptus/badges/coverage.svg)](https://codeclimate.com/github/cressie176/cryptus/coverage)
-[![Code Style](https://img.shields.io/badge/code%20style-imperative-brightgreen.svg)](https://github.com/cressie176/eslint-config-imperative)
 [![Dependency Status](https://david-dm.org/cressie176/cryptus.svg)](https://david-dm.org/cressie176/cryptus)
 [![devDependencies Status](https://david-dm.org/cressie176/cryptus/dev-status.svg)](https://david-dm.org/cressie176/cryptus?type=dev)
 

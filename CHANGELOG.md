@@ -1,6 +1,7 @@
 # Change Log
 
 ## 2.0.0
+- Migrate from travis to GitHub actions
 - Update other dependencies
 - Update eslint and switch to eslint:recommended
 - Removed support for Node 6 and 8
